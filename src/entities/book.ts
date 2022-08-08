@@ -17,4 +17,7 @@ export class Book {
       throw new Error('a data de publicação não pode ser no futuro');
     }
   }
+
+  
+
 }

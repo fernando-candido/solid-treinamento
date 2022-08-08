@@ -1,8 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import { Author } from './entities/author';
 import { Book } from './entities/book';
 import { DigitalBook } from './entities/digitalBook';
+import { makeCreateAuthorService } from './factory/createAuthorService.factory';
 import { makeCreateBookService } from './factory/createBookService.factory';
+import { CreateAuthorService } from './services/createAuthor.service';
 
 const authorSchema = new mongoose.Schema({
   nome: 'String',
@@ -46,6 +49,8 @@ app.get('/', (req, res) => {
 app.post('/authors', async (req, res) => {
   const { name } = req.body;
 
+  const createAuthorService = makeCreateAuthorService();
+
   if (!name || name.trim().length == 0) {
     return res.status(404).send({
       message: 'autor é obrigatório e não pode ser vazio',
@@ -53,7 +58,11 @@ app.post('/authors', async (req, res) => {
     });
   }
 
-  const authorCreated = await AuthorModel.create({ nome: name });
+  let author: Author;
+  author = new Author(name, qtdBooks);
+
+  const authorCreated = await createAuthorService.createAuthor(author);
+
   res.status(200).send({
     message: 'author created',
     data: authorCreated.toObject(),
@@ -62,12 +71,18 @@ app.post('/authors', async (req, res) => {
 
 app.get('/authors', async (req, res) => {
   const authors = await AuthorModel.find({});
-
   return res.status(200).send({
     message: 'authors listed with success',
     data: authors,
   });
 });
+
+// app.get("/authors/:id", async (req, res) => {
+//   const { id } = req.params;
+//   const author = authors.find(author => author.id === id)
+//   return res.json(author)
+// })
+
 
 app.get('/books', async (req, res) => {
   const books = await BookModel.find({}).populate('autor');
@@ -78,9 +93,9 @@ app.get('/books', async (req, res) => {
   });
 });
 
+
 app.post('/books', async (req, res) => {
-  try {
-    const { title, qtdPages, authorId, publishDate, isDigital, sizeInKBytes, kindleCompatible } =
+  try {    const { title, qtdPages, authorId, publishDate, isDigital, sizeInKBytes, kindleCompatible } =
       req.body;
 
     const createBookService = makeCreateBookService();
