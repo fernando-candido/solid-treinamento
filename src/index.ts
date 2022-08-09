@@ -8,7 +8,7 @@ import { makeCreateBookService } from './factory/createBookService.factory';
 import { CreateAuthorService } from './services/createAuthor.service';
 
 const authorSchema = new mongoose.Schema({
-  nome: 'String',
+  nome: {type: 'String', required: true},
   quantidade_livros: { type: 'Number', required: true, default: 0 },
 });
 
@@ -47,7 +47,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/authors', async (req, res) => {
-  const { name } = req.body;
+  const { name, qtdBooks } = req.body;
 
   const createAuthorService = makeCreateAuthorService();
 
@@ -65,7 +65,7 @@ app.post('/authors', async (req, res) => {
 
   res.status(200).send({
     message: 'author created',
-    data: authorCreated.toObject(),
+    data: authorCreated,
   });
 });
 
@@ -85,7 +85,7 @@ app.get('/authors', async (req, res) => {
 
 
 app.get('/books', async (req, res) => {
-  const books = await BookModel.find({}).populate('autor');
+  const books = await BookModel.find({}).populate('authors');
 
   res.status(200).send({
     message: 'books listed with success',

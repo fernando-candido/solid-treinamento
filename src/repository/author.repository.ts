@@ -1,7 +1,8 @@
 import { Author } from '../entities/author';
 import { AuthorModel } from '../index';
+import { IAuthorRepository } from './iauthor.repository';
 
-export class AuthorRepository {
+export class AuthorRepository implements IAuthorRepository{
 
   public async create(author: Author) {
     let authorCreated: Author;

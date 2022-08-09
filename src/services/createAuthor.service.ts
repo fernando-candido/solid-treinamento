@@ -10,13 +10,9 @@ export class CreateAuthorService {
     ) { }
 
     async createAuthor(author: Author): Promise<Author> {
-
         author.validate();
-
         const authorCreated = await this.authorRepository.create(author);
         return authorCreated;
-
-   
       }
 
 }
