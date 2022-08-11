@@ -16,8 +16,7 @@ export class Book {
     if (this.publishDate.getTime() > new Date().getTime()) {
       throw new Error('a data de publicação não pode ser no futuro');
     }
+    
   }
-
-  
 
 }

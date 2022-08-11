@@ -1,0 +1,26 @@
+### post book
+POST http://localhost:3000/books
+content-type: application/json
+
+{
+	"title": "Livro do wilker",
+	"qtdPages": 421,	
+	"authorId": "62f548d2bf5afa61c9072206",
+	"publishDate": "2021-09-01"
+}
+
+### post author
+POST http://localhost:3000/authors
+content-type: application/json
+
+{
+    "name": "Wilker Leandro"
+}
+
+### get
+GET http://localhost:3000/books
+
+### get
+GET http://localhost:3000/authors
+
+
