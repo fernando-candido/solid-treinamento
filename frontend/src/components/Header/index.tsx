@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 function Header() {
@@ -6,10 +7,13 @@ function Header() {
         <>
             <header>
                 <div >
-                    <p>
-                        Desenvolvido por
-                        <a href="https://www.instagram.com/fcsj/">@fcsj</a>
-                    </p>
+           <nav>
+                <ul>
+                    <ol> <Link to='/'>Home</Link></ol>
+                    <ol> <Link to='/author'>Autores</Link></ol>
+                    <ol><Link to='/book'>Livros</Link></ol>
+                </ul>
+           </nav>
                 </div>
             </header>  
         </>

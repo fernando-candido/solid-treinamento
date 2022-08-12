@@ -1,8 +1,10 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import './App.css'
-import Header from './components/Header'
-import BodyAuthor from './components/BodyAuthor'
-import TableAuthor from './components/TableAuthor'
+import BodyAuthor from './components/Author/BodyAuthor'
+import BodyBook from './components/Book/BodyBook'
+import Home from './components/Home'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -10,10 +12,13 @@ function App() {
   return (
 
     <>
-      <Header />
-      <BodyAuthor />
-    
-           
+        <Router>
+          <Routes>
+              <Route path="/" element={<Home />}  />
+              <Route path="/author" element={<BodyAuthor />}  />
+              <Route path="/book" element={<BodyBook />}  />
+          </Routes>
+        </Router>
     </>
 
   )

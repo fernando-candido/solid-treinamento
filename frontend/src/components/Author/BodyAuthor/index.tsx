@@ -6,13 +6,14 @@ import Button from '@mui/material/Button';
 import './styles.css'
 import { TextField } from '@mui/material';
 import TableAuthor from '../TableAuthor';
+import Header from '../../Header';
 
 const cardPostAuthor = (
     <React.Fragment>
         <CardContent >
         <h1>CRIAR NOVO AUTOR</h1>
-            <TextField className='campoAutor' label="Nome do autor" variant="outlined" size='small'  margin="dense"/>
-            <Button className="botao" variant="contained">Salvar</Button>
+            <TextField className='campoAuthor' label="Nome do autor" variant="outlined" size='small'  margin="dense"/>
+            <Button sx={{color: 'white', background: '#25B79D'}} variant="contained">Salvar</Button>
         </CardContent>
     </React.Fragment>
 );
@@ -28,8 +29,10 @@ const cardPostAuthor = (
 // );
 
 export default function BodyAuthor() {
+    
     return (
-        <> 
+        <>
+        <Header/>
         <Box >
             <Card className='cardLeft' variant="outlined">
                 {cardPostAuthor}
@@ -37,7 +40,6 @@ export default function BodyAuthor() {
             {/* <Card className='cardRight' variant="outlined" >
                 {cardListAuthor}
             </Card> */}
-            
         </Box>
         <TableAuthor/>
         </>
