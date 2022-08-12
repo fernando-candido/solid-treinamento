@@ -1,0 +1,38 @@
+
+.cardLeft{
+    color: #000000;
+    justify-content: left;
+    display: flex;
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 450px;
+    height: 200px;
+    
+}
+
+.cardRight{
+    color: #000000;
+    justify-content: left;
+    display: flex;
+    margin-left: 30px;
+    margin-top: 30px;
+    width: 450px;
+    height: 500px;
+    background: #25B79D;
+}
+
+.campoAutor{
+    width: 400px;
+}
+
+h1{
+    justify-content: left;
+    display: flex;
+    font-size: 14px;
+}
+
+
+botao{
+    background: #25B79D;
+    color: #25B79D;
+}
