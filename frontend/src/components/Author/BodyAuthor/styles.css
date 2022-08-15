@@ -29,3 +29,17 @@ h1{
     display: flex;
     font-size: 14px;
 }
+
+.body-author-container{
+    display: flex;
+    padding: 40px;
+    gap: 200px;
+    width: 1000px;
+
+}
+
+.tabela-autor{
+    gap: 200px;
+    padding: 35px;
+    margin: 
+}

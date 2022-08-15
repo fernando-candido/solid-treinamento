@@ -33,6 +33,7 @@ export default function BodyAuthor() {
     return (
         <>
         <Header/>
+        <div className='body-author-container'>
         <Box >
             <Card className='cardLeft' variant="outlined">
                 {cardPostAuthor}
@@ -41,7 +42,10 @@ export default function BodyAuthor() {
                 {cardListAuthor}
             </Card> */}
         </Box>
+        <div className='tabela-autor'>
         <TableAuthor/>
+        </div>
+        </div>
         </>
     );
 }
