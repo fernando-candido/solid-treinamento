@@ -19,3 +19,8 @@ Após essa configuração basta rodar
 ## Integration Tests
 
 ``` yarn test ```
+
+
+## Extensão importante
+
+``` REST Client ```
